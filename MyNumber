@@ -1,0 +1,70 @@
+
+public class MyNumber {
+    private int number;
+
+    /**
+     * Default constructor to initialize the number to 0.
+     */
+    public MyNumber() {
+        this.number = 0;
+    }
+
+    public MyNumber(int value) {
+        this.number = value;
+    }
+
+    public boolean isNegative() {
+        return this.number < 0;
+    }
+
+   
+    public boolean isPositive() {
+        return this.number > 0;
+    }
+
+    public boolean isZero() {
+        return this.number == 0;
+    }
+
+    
+    public boolean isOdd() {
+        return this.number % 2 != 0;
+    }
+
+    
+    public boolean isEven() {
+        return this.number % 2 == 0;
+    }
+
+    public static void main(String[] args) {
+        if (args.length != 1) {
+            System.out.println("Please provide exactly one integer argument.");
+            return;
+        }
+
+        // Convert the command-line argument to an integer
+        int value = Integer.parseInt(args[0]);
+
+        // Create a MyNumber object and initialize it with the provided value
+        MyNumber myNumber = new MyNumber(value);
+
+        // Perform the tests and display the results
+        System.out.println("Number: " + myNumber.number);
+        System.out.println("Is Negative: " + myNumber.isNegative());
+        System.out.println("Is Positive: " + myNumber.isPositive());
+        System.out.println("Is Zero: " + myNumber.isZero());
+        System.out.println("Is Odd: " + myNumber.isOdd());
+        System.out.println("Is Even: " + myNumber.isEven());
+    }
+}
+
+
+
+
+output:-
+Number: 20
+Is Negative: false
+Is Positive: true
+Is Zero: false
+Is Odd: false
+Is Even: true
