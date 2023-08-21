@@ -1,0 +1,80 @@
+Write a java program which accepts an integer arrary and print the data and sort the data in descending order.
+
+
+import java.util.Scanner;
+import java.util.Arrays;
+
+public class SortDescending {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+
+        // Prompt the user to enter the number of elements in the array
+        System.out.print("Enter the number of elements: ");
+        int n = scanner.nextInt();
+
+        // Create an array to store the integers
+        int[] arr = new int[n];
+
+        // Prompt the user to enter the array elements
+        System.out.println("Enter the elements of the array:");
+        for (int i = 0; i < n; i++) {
+            arr[i] = scanner.nextInt();
+        }
+
+        // Close the scanner since we've finished reading input
+        scanner.close();
+
+        // Print the original array
+        System.out.println("Original array:");
+        printArray(arr);
+
+        // Sort the array in descending order
+        Arrays.sort(arr);
+        reverseArray(arr);
+
+        // Print the sorted array in descending order
+        System.out.println("Sorted array in descending order:");
+        printArray(arr);
+    }
+
+    // Function to print an array
+    public static void printArray(int[] arr) {
+        for (int num : arr) {
+            System.out.print(num + " ");
+        }
+        System.out.println();
+    }
+
+    // Function to reverse the order of elements in an array
+    public static void reverseArray(int[] arr) {
+        int left = 0;
+        int right = arr.length - 1;
+
+        while (left < right) {
+            // Swap the elements at the left and right indices
+            int temp = arr[left];
+            arr[left] = arr[right];
+            arr[right] = temp;
+
+            // Move the indices towards the center
+            left++;
+            right--;
+        }
+    }
+}
+
+
+
+OUTPUT:-
+
+Enter the number of elements: 5
+Enter the elements of the array:
+2
+3
+6
+9
+8
+Original array:
+2 3 6 9 8 
+Sorted array in descending order:
+9 8 6 3 2 
