@@ -23,3 +23,8 @@ public class FindMaxMin {
         System.out.println("Minimum: " + min);
     }
 }
+output:-
+    Enter three integer values:
+    8 9 6
+    Maximum: 9
+    Minimum: 6
