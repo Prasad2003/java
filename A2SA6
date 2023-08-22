@@ -1,0 +1,67 @@
+import java.util.Scanner;
+
+class Person {
+    int pid;
+    String pname;
+    int age;
+    String gender;
+
+    // Default constructor
+    Person() {
+        this.pid = 0;
+        this.pname = "";
+        this.age = 0;
+        this.gender = "";
+    }
+
+    // Parameterized constructor
+    Person(int pid, String pname, int age, String gender) {
+        this.pid = pid;
+        this.pname = pname;
+        this.age = age;
+        this.gender = gender;
+    }
+
+    // Display person details
+    void display() {
+        System.out.println("Person ID: " + pid);
+        System.out.println("Name: " + pname);
+        System.out.println("Age: " + age);
+        System.out.println("Gender: " + gender);
+        System.out.println();
+    }
+}
+
+public class PersonMain {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+        Person[] persons = new Person[5];
+
+        for (int i = 0; i < 5; i++) {
+            System.out.println("Enter details for Person " + (i + 1) + ":");
+            System.out.print("ID: ");
+            int pid = scanner.nextInt();
+            scanner.nextLine(); // Consume the newline character
+            System.out.print("Name: ");
+            String pname = scanner.nextLine();
+            System.out.print("Age: ");
+            int age = scanner.nextInt();
+            scanner.nextLine(); // Consume the newline character
+            System.out.print("Gender: ");
+            String gender = scanner.nextLine();
+
+            // Create a person object using the parameterized constructor
+            persons[i] = new Person(pid, pname, age, gender);
+        }
+
+        System.out.println("\nDetails of 5 Persons:");
+        for (int i = 0; i < 5; i++) {
+            System.out.println("Person " + (i + 1) + ":");
+            persons[i].display();
+        }
+
+        scanner.close();
+    }
+}
+
+
