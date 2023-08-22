@@ -1,0 +1,69 @@
+class Student {
+    int rollNumber;
+    String name;
+    double percentage;
+    static int objectCount = 0; // Static member to keep track of objects created
+
+    // Default constructor
+    Student() {
+        objectCount++; // Increment object count when a new object is created
+    }
+
+    // Parameterized constructor
+    Student(int rollNumber, String name, double percentage) {
+        this.rollNumber = rollNumber;
+        this.name = name;
+        this.percentage = percentage;
+        objectCount++; // Increment object count when a new object is created
+    }
+
+    // Static method to get the object count
+    static int getObjectCount() {
+        return objectCount;
+    }
+
+    // Display student details
+    void display() {
+        System.out.println("Roll Number: " + rollNumber);
+        System.out.println("Name: " + name);
+        System.out.println("Percentage: " + percentage + "%\n");
+    }
+}
+
+public class StudentMain {
+    public static void main(String[] args) {
+        // Create student objects using the parameterized constructor
+        Student student1 = new Student(101, "Alice", 85.5);
+        System.out.println("Object Count: " + Student.getObjectCount());
+        student1.display();
+
+        Student student2 = new Student(102, "Bob", 77.2);
+        System.out.println("Object Count: " + Student.getObjectCount());
+        student2.display();
+
+        // Create a student object using the default constructor
+        Student student3 = new Student();
+        System.out.println("Object Count: " + Student.getObjectCount());
+
+        // Display the contents of the default object (initial values)
+        System.out.println("Contents of Default Object:");
+        student3.display();
+    }
+}
+OUTPUT:-
+Object Count: 1
+Roll Number: 101
+Name: Alice
+Percentage: 85.5%
+
+Object Count: 2
+Roll Number: 102
+Name: Bob
+Percentage: 77.2%
+
+Object Count: 3
+Contents of Default Object:
+Roll Number: 0
+Name: null
+Percentage: 0.0%
+
