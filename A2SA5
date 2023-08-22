@@ -1,0 +1,34 @@
+import java.util.Scanner;
+
+public class CharacterCount {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+
+        // Input the string
+        System.out.print("Enter a string: ");
+        String inputString = scanner.nextLine();
+
+        // Input the character to search for
+        System.out.print("Enter the character to search for: ");
+        char charToSearch = scanner.nextLine().charAt(0);
+
+        // Initialize a count variable
+        int charCount = 0;
+
+        // Iterate through the string to count occurrences of the character
+        for (int i = 0; i < inputString.length(); i++) {
+            if (inputString.charAt(i) == charToSearch) {
+                charCount++;
+            }
+        }
+
+        // Display the total number of occurrences
+        System.out.println("Total number of '" + charToSearch + "' in the string: " + charCount);
+
+        scanner.close();
+    }
+}
+OUTPUT:-
+Enter a string: 8 9 6 
+Enter the character to search for: 9
+Total number of '9' in the string: 1
