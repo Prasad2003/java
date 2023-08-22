@@ -1,0 +1,45 @@
+import java.util.Scanner;
+
+class Employee {
+    String name;
+    double salary;
+
+    Employee(String name, double salary) {
+        this.name = name;
+        this.salary = salary;
+    }
+}
+
+public class EmployeeMain {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+        Employee[] employees = new Employee[5];
+
+        // Input employee information
+        for (int i = 0; i < 5; i++) {
+            System.out.println("Enter Employee " + (i + 1) + " Name:");
+            String name = scanner.nextLine();
+
+            System.out.println("Enter Employee " + (i + 1) + " Salary:");
+            double salary = scanner.nextDouble();
+            scanner.nextLine(); // Consume the newline character
+
+            employees[i] = new Employee(name, salary);
+        }
+
+        // Find the employee with maximum salary
+        Employee maxSalaryEmployee = employees[0];
+        for (int i = 1; i < 5; i++) {
+            if (employees[i].salary > maxSalaryEmployee.salary) {
+                maxSalaryEmployee = employees[i];
+            }
+        }
+
+        // Display the employee with the maximum salary
+        System.out.println("Employee with Maximum Salary:");
+        System.out.println("Name: " + maxSalaryEmployee.name);
+        System.out.println("Salary: " + maxSalaryEmployee.salary);
+
+        scanner.close();
+    }
+}
